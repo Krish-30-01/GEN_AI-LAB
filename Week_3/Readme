@@ -1,1 +1,46 @@
 
+# Week 2 LLM Client
+
+A small Python command-line app that sends prompts to either Google Gemini or a local Ollama model through a shared `LLMClient` interface.
+
+## Providers
+
+- **Gemini:** Uses the `google-genai` package and the `gemini-3.8-flash` model.
+- **Ollama:** Calls a local Ollama server using the `llama3.2` model.
+
+## Setup
+
+Requires Python 3.10 or newer.
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+For Gemini, create a `.env` file in this directory:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+For Ollama, install and start Ollama, then ensure `llama3.2` is available:
+
+```powershell
+ollama pull llama3.2
+ollama serve
+```
+
+## Run
+
+```powershell
+python main.py
+```
+
+Choose `gemini` or `ollama`, then enter a prompt.
+
+## Test
+
+```powershell
+python -m pytest
+```
