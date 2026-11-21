@@ -1,1 +1,25 @@
+NLP and LLM Infrastructure Notebook
+This notebook documents the weekly progression of tasks focused on Natural Language Processing (NLP) tokenization comparison, multilingual subword analysis, and local LLM runtime infrastructure setup.
 
+Table of Contents
+Week 4: Tokenizer Comparison
+Week 5: Multilingual Subword Tokenization with mT5
+Week 6: Local LLM Infrastructure Setup (Ollama)
+Week 4: Tokenizer Comparison
+Objective: Evaluate how different tokenization algorithms process text in various languages.
+Models Compared:
+BPE (Byte Pair Encoding): Using the gpt2 tokenizer.
+WordPiece: Using bert-base-multilingual-cased (M-BERT).
+SentencePiece: Using xlm-roberta-base (XLM-R).
+Test Languages: English, Telugu, and Hindi.
+Key Takeaways: Different tokenizers vary significantly in vocabulary representation, piece length, and overall token counts when dealing with non-Latin scripts.
+Week 5: Multilingual Subword Tokenization with mT5
+Objective: Deep-dive into multilingual subword-level tokenization using a massive translation model framework.
+Model used: Google's google/mt5-small model tokenizer.
+Analysis: Demonstrates how multilingual vocabularies use byte-fallback configurations and specific subword tokens (such as prefix marker ▁) to represent complex structures in Dravidian (Telugu) and Indo-Aryan (Hindi) scripts.
+Week 6: Local LLM Infrastructure Setup (Ollama)
+Objective: Deploy and manage a containerized/local LLM hosting service directly inside the notebook environment.
+Steps Implemented:
+Dependencies Installation: Update system package indices and set up zstd compression utilities.
+Ollama Installation: Automatically fetch and install the official lightweight Ollama binary to run inference locally.
+Server Runtime Daemon: Spawn a non-blocking background subprocess to host the Ollama server on localhost:11434 with persistent health-checks via Python.
