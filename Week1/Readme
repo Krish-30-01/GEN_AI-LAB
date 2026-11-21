@@ -1,1 +1,17 @@
+Gemini API Quickstart README
+This notebook demonstrates how to set up and use the new Google GenAI SDK to interact with Gemini models.
 
+Setup Instructions
+Installation: Install the official Google GenAI SDK:
+
+pip install google-genai
+API Key Configuration: Store your Gemini API key in Colab's Secrets manager (the key icon on the left sidebar) with the name GENAI_Week1Key.
+
+Initialization: Retrieve the key securely and initialize the client:
+
+from google import genai
+from google.colab import userdata
+
+api_key = userdata.get("GENAI_Week1Key")
+client = genai.Client(api_key=api_key)
+Generate Content: Use the client.models.generate_content method with the desired model (such as gemini-2.5-flash) to generate responses to prompts.
